@@ -157,7 +157,7 @@ body {
 					<ul class="mobile-header-items nav pull-center">
 						<li class="nav-item"><div class="nav-item-inner">
 							<div class="mobile-logo">
-								<a href="" title="Ramca Teleservices" >
+								<a href="../" title="Ramca Teleservices" >
 								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" /></a>
 							</div>
 						</div>
@@ -182,7 +182,7 @@ body {
 				<li class="nav-item">
 					<div class="nav-item-inner">
 						<div class="mobile-logo">
-							<a href="" title="Ramca Teleservices" >
+							<a href="../" title="Ramca Teleservices" >
 								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
 							</a>
 						</div>
@@ -284,12 +284,12 @@ body {
 							<li class="nav-item">
 								<div class="nav-item-inner">
 									<div class="main-logo"> 
-										<a href="" title="Ramca Teleservices">
+										<a href="../" title="Ramca Teleservices">
 											<img class="custom-logo img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
 										</a>
 									</div>
 									<div class="sticky-logo">
-										<a href="" title="Ramca Teleservices" >
+										<a href="../" title="Ramca Teleservices" >
 											<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
 										</a>
 									</div>
