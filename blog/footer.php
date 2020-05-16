@@ -126,7 +126,8 @@ These Products and Services are packaged to suit your Technological needs.</p>
 					
 	
 	
-	<script type="text/html" id="wpb-modifications"></script><link href="https://fonts.googleapis.com/css?family=Raleway:400%2C900%2C700%7CSarala:400" rel="stylesheet" property="stylesheet" media="all" type="text/css" > <script type="text/javascript">var c = document.body.className;
+	<script type="text/html" id="wpb-modifications"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400%2C900%2C700%7CSarala:400" rel="stylesheet" property="stylesheet" media="all" type="text/css" > <script type="text/javascript">var c = document.body.className;
 		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
 		document.body.className = c;</script> <script type="text/javascript">if(typeof revslider_showDoubleJqueryError === "undefined") {
 			function revslider_showDoubleJqueryError(sliderID) {
