@@ -317,9 +317,9 @@ body {
 												</li>
 											</ul>
 										</li>
-										<li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item menu-item-1402">
+										<!-- <li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item menu-item-1402">
 											<a href="../project" class="nav-link">Projects</a>
-										</li>
+										</li> -->
 										<!--<li id="menu-item-1265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1265 dropdown">
 											<a href="../blog" class="nav-link dropdown-toggle">Blog</a>
 										</li>-->

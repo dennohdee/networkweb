@@ -22,7 +22,7 @@
 
                             (function() {
                                 var wf = document.createElement( 'script' );
-                                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js';
+                                wf.src =../ 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js';
                                 wf.type = 'text/javascript';
                                 wf.async = 'true';
                                 var s = document.getElementsByTagName( 'script' )[0];
@@ -36,20 +36,20 @@
 							<meta property="og:url" content=""/>
 							<meta property="og:site_name" content="Ramca Teleservices"/>
 							<meta property="og:description" content="Profitable Investmen tExcepteur sint occaecat cupidatat non proident, sunt"/>
-							<link rel='stylesheet' id='wp-block-library-css'  href='wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='wc-block-style-css'  href='wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='rs-plugin-settings-css'  href='wp-content/plugins/revslider/public/assets/css/rs6.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='wc-block-style-css'  href='../wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='rs-plugin-settings-css'  href='../wp-content/plugins/revslider/public/assets/css/rs6.css' type='text/css' media='all' />
 							<style id='rs-plugin-settings-inline-css' type='text/css'>#rs-demo-id {}</style>
-							<link rel='stylesheet' id='contact-form-7-css'  href='wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='woocommerce-layout-css'  href='wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
-							<link rel='stylesheet' id='woocommerce-general-css'  href='wp-content/plugins/woocommerce/assets/css/woocommerce.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='contact-form-7-css'  href='../wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='woocommerce-layout-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
+							<link rel='stylesheet' id='woocommerce-general-css'  href='../wp-content/plugins/woocommerce/assets/css/woocommerce.css' type='text/css' media='all' />
 							<style id='woocommerce-inline-inline-css' type='text/css'>.woocommerce form .form-row .required { visibility: visible; }</style>
-							<link rel='stylesheet' id='js_composer_front-css'  href='wp-content/plugins/js_composer/assets/css/js_composer.min.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='counsel-min-css'  href='wp-content/themes/counsel/assets/css/theme.min.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='counsel-style-css'  href='wp-content/themes/counsel/style.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='counsel-shortcode-css'  href='wp-content/themes/counsel/assets/css/shortcode.css' type='text/css' media='all' />
-							<link rel='stylesheet' id='counsel-theme-style-css'  href='wp-content/uploads/sites/17/counsel/theme_17.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='js_composer_front-css'  href='../wp-content/plugins/js_composer/assets/css/js_composer.min.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='counsel-min-css'  href='../wp-content/themes/counsel/assets/css/theme.min.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='counsel-style-css'  href='../wp-content/themes/counsel/style.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='counsel-shortcode-css'  href='../wp-content/themes/counsel/assets/css/shortcode.css' type='text/css' media='all' />
+							<link rel='stylesheet' id='counsel-theme-style-css'  href='../wp-content/uploads/sites/17/counsel/theme_17.css' type='text/css' media='all' />
 							<style id='counsel-theme-style-inline-css' type='text/css'>
 							/*
 							* Counsel Theme Page Style
@@ -57,23 +57,23 @@
 
 body {
 		}.counsel-content > .counsel-content-inner{padding-top: 0px;padding-bottom: 0px;
-		}</style> <script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script> 
+		}</style> <script type='text/javascript' src='../wp-includes/js/jquery/jquery.js'></script> 
 		<script type='text/javascript'>var wc_add_to_cart_params = {"ajax_url":"\/counsell\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/counsell\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"http:\/\/demo.zozothemes.com\/counsell\/cart\/","is_cart":"","cart_redirect_after_add":"no"};</script>
-		 <!--[if lt IE 9]> <script type='text/javascript' src='wp-content/themes/counsel/assets/js/html5.js'></script> <![endif]-->
-		 <link rel='https://api.w.org/' href='wp-json/' />
+		 <!--[if lt IE 9]> <script type='text/javascript' src='../wp-content/themes/counsel/assets/js/html5.js'></script> <![endif]-->
+		 <link rel='https://api.w.org/' href='../wp-json/' />
 		 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php?rsd" />
 		 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" />
 		 <meta name="generator" content="WordPress 5.4.1" /><meta name="generator" content="WooCommerce 4.1.0" />
 		 <link rel="canonical" href="" />
 		 <link rel='shortlink' href='' />
-		 <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.zozothemes.com%2Fcounsell%2F" />
-		 <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.zozothemes.com%2Fcounsell%2F&#038;format=xml" /> 
+		 <link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.zozothemes.com%2Fcounsell%2F" />
+		 <link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdemo.zozothemes.com%2Fcounsell%2F&#038;format=xml" /> 
 		 <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style>
 		</noscript><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
 		 <meta name="generator" content="Powered by Slider Revolution 6.2.2 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-		 <link rel="icon" href="wp-content/uploads/sites/17/2018/09/cropped-favicon-32x32.png" sizes="32x32" />
-		 <link rel="icon" href="wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" sizes="192x192" />
-		 <link rel="apple-touch-icon" href="wp-content/uploads/sites/17/2018/09/cropped-favicon-180x180.png" />
+		 <link rel="icon" href="../wp-content/uploads/sites/17/2018/09/cropped-favicon-32x32.png" sizes="32x32" />
+		 <link rel="icon" href="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" sizes="192x192" />
+		 <link rel="apple-touch-icon" href="../wp-content/uploads/sites/17/2018/09/cropped-favicon-180x180.png" />
 		 <meta name="msapplication-TileImage" content="wp-content/uploads/sites/17/2018/09/cropped-favicon-270x270.png" /> 
 		 <script type="text/javascript">function setREVStartSize(e){			
 			try {								
@@ -157,8 +157,8 @@ body {
 					<ul class="mobile-header-items nav pull-center">
 						<li class="nav-item"><div class="nav-item-inner">
 							<div class="mobile-logo">
-								<a href="" title="Ramca Teleservices" >
-								<img class="img-responsive" src="wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" /></a>
+								<a href="../" title="Ramca Teleservices" >
+								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" /></a>
 							</div>
 						</div>
 					</li>
@@ -182,8 +182,8 @@ body {
 				<li class="nav-item">
 					<div class="nav-item-inner">
 						<div class="mobile-logo">
-							<a href="" title="Ramca Teleservices" >
-								<img class="img-responsive" src="wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
+							<a href="../" title="Ramca Teleservices" >
+								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
 							</a>
 						</div>
 					</div>
@@ -284,13 +284,13 @@ body {
 							<li class="nav-item">
 								<div class="nav-item-inner">
 									<div class="main-logo"> 
-										<a href="" title="Ramca Teleservices">
-											<img class="custom-logo img-responsive" src="wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
+										<a href="../" title="Ramca Teleservices">
+											<img class="custom-logo img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
 										</a>
 									</div>
 									<div class="sticky-logo">
-										<a href="" title="Ramca Teleservices" >
-											<img class="img-responsive" src="wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
+										<a href="../" title="Ramca Teleservices" >
+											<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
 										</a>
 									</div>
 								</div>
@@ -303,27 +303,28 @@ body {
 							<li class="nav-item">
 								<div class="nav-item-inner">
 									<ul id="counsel-main-menu" class="nav counsel-main-menu">
-										<li id="menu-item-1255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-588 current_page_item menu-item-has-children nav-item menu-item-1255">
-											<a href="" class="nav-link">Home</a>
+										<li id="menu-item-1255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-588 menu-item-has-children nav-item menu-item-1255">
+											<a href="../" class="nav-link">Home</a>
 										</li>
-										<li id="menu-item-1266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1266"><a href="about" class="nav-link">About Us</a>
+										<li id="menu-item-1266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1266">
+										<a href="../about" class="nav-link">About Us</a>
 										</li>
 										<li id="menu-item-1264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1264 dropdown">
-											<a href="services/" class="nav-link dropdown-toggle">Services</a>
+											<a href="../services/" class="nav-link dropdown-toggle">Services</a>
 											<ul role="menu" class=" dropdown-menu">
 												<li id="menu-item-1495" class="menu-item menu-item-type-post_type menu-item-object-cl-service nav-item menu-item-1495">
-													<a href="" class="nav-link">All Services</a>
+													<a href="#" class="nav-link">All Services</a>
 												</li>
 											</ul>
 										</li>
-										<!-- <li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item menu-item-1402">
-											<a href="project" class="nav-link">Projects</a>
+										<!-- <li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-has-children nav-item menu-item-1402">
+											<a href="../project" class="nav-link">Projects</a>
 										</li> -->
 										<!--<li id="menu-item-1265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1265 dropdown">
-											<a href="blog" class="nav-link dropdown-toggle">Blog</a>
+											<a href="../blog" class="nav-link dropdown-toggle">Blog</a>
 										</li>-->
 										<li id="menu-item-1259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1259 dropdown">
-											<a href="contact-us/" class="nav-link dropdown-toggle">Contact Us</a>
+											<a href="../contact-us/" class="nav-link dropdown-toggle">Contact Us</a>
 										</li>
 									</ul>
 								</div>
