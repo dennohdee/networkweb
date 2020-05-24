@@ -1,4 +1,10 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php'); 
+//services
+$sqlservice = mysqli_query($conn,"SELECT * FROM `services` LIMIT 3");
+//team
+$sqlteam = mysqli_query($conn,"SELECT * FROM `team` LIMIT 3");
+
+?>
 <div class="counsel-content-wrapper">
 	<div class="counsel-content counsel-page">
 		<div class="header-slider-wrapper">
@@ -31,7 +37,7 @@
  data-frame_1="tp:600;st:1360;sp:1500;sR:1360;"
  data-frame_999="o:0;tp:600;e:nothing;st:w;sR:6110;"
  style="z-index:6;font-family:Raleway;"
- >Ramca Teleservices </rs-layer><rs-layer
+ ><?php echo $info['name']; ?> </rs-layer><rs-layer
  id="slider-1-slide-1-layer-12" 
  data-type="text"
  data-rsp_ch="on"
@@ -140,63 +146,30 @@
 								</div>
 								<div class="services-wrapper services-1 services-light shortcode-rand-36 counsel-inline-css" data-css="&quot;.shortcode-rand-36.services-wrapper .services-inner &gt; *:nth-child(1) { margin-bottom: 40px; }.shortcode-rand-36.services-wrapper .services-inner &gt; *:nth-child(2) { margin-bottom: 30px; }.shortcode-rand-36.services-wrapper .services-inner &gt; *:nth-child(3) { margin-bottom: 30px; }&quot;">
 								<div class="row">
+								<?php while($servicedata = mysqli_fetch_array($sqlservice)) { ?>
+								<!-- -->
 								<div class="col-lg-4 col-md-4">
-									<div class="services-inner">
+									<div class="services-inner" style="height:680px">
 										<div class="services-thumb">
-											<img height="355" width="600" class="img-fluid" alt="We Love Our Client" src="wp-content/uploads/sites/17/2018/06/tcpip_transmission.jpg"/>
+											<img height="355" width="600" class="img-fluid" alt="We Love Our Client" src="wp-content/uploads/sites/17/2018/06/<?php echo $servicedata['image'];?>"/>
 										</div>
 										<div class="services-title">
-											<h3 class="invisible-number">01</h3>
+											<h3 class="invisible-number"><?php echo $servicedata['id'];?></h3>
 											<h3>
-												<a href="services" class="entry-title">Telecommunication Solutions</a>
+												<a href="services" class="entry-title"><?php echo $servicedata['name'];?></a>
 											</h3>
 										</div>
 										<div class="services-excerpt">
-											<p>Telecommunication services(GSM, CDMA, UMTS, LTE), Walk/Drive Tests, Cabling and Data Networks(LAN, FTTD and their services).</p>
+											<p><?php echo substr($servicedata['description'],0,170).'...';?></p>
 										</div>
 										<div class="services-read-more">
 											<a href="services" class="read-more">Learn More</a>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4 col-md-4">
-									<div class="services-inner">
-										<div class="services-thumb"><img height="355" width="600" class="img-fluid" alt="Company Of Professional" src="wp-content/uploads/sites/17/2018/06/CAT6A-F-UTP-CABLE.png"/>
-										</div>
-										<div class="services-title">
-											<h3 class="invisible-number">02</h3>
-											<h3>
-												<a href="services" class="entry-title">Data Solutions</a>
-												</h3>
-										</div>
-											<div class="services-excerpt">
-											<p>With our ENVIROMUX Remote Environment Monitoring System, you will be able to monitor elements such as Temperature, Humidity, Smoke, Vibrations and even Intrusions</p>
-											</div>
-											<div class="services-read-more">
-											<a href="services" class="read-more">Learn More</a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-4">
-										<div class="services-inner">
-											<div class="services-thumb">
-												<img height="355" width="600" class="img-fluid" alt="Make Business Strategy" src="wp-content/uploads/sites/17/2018/06/net3.jpg"/>
-											</div>
-											<div class="services-title">
-												<h3 class="invisible-number">03</h3>
-												<h3>
-													<a href="services" class="entry-title">Security and Safety Solutions</a>
-												</h3>
-											</div>
-											<div class="services-excerpt">
-												<p>We offer a variety of Services and Equipment like Smoke detectors, Metal detectors and CCTV Cameras to ensure your Safety and Sercurity
-</p>
-											</div>
-											<div class="services-read-more">
-												<a href="services" class="read-more">Learn More</a>
-											</div>
-										</div>
-									</div>
+								<?php } ?>
+								<!-- -->
+								
 								  </div>
 								</div>
 								</div>
@@ -205,67 +178,6 @@
 						</div>
 
 		
-	<div class="vc_row-full-width vc_clearfix"></div>
-	<div class="vc_row wpb_row vc_row-fluid">
-		<div class="wpb_column vc_column_container vc_col-sm-12">
-			<div class="vc_column-inner">
-				<div class="wpb_wrapper">
-				<div class="section-title-wrapper text-center shortcode-rand-53 counsel-inline-css" data-css="&quot;.shortcode-rand-53 .title-wrap { margin: 0px 0px 24px 0px; }.shortcode-rand-53 .section-title { text-transform: none; }&quot;">
-				<div class="title-wrap"><h2 class="section-title">Our Gallery</h2></div>
-				</div>
-				<div class="cobbles-wrapper row image-gallery  shortcode-rand-54 counsel-inline-css cobbles-classis clearfix" data-css="&quot;.shortcode-rand-54 .cobbles-wrap { color: #ffffff; }.shortcode-rand-54 .cobbles-wrap a { color: #ffffff; }.shortcode-rand-54 .cobbles-wrap a:hover { color: #ffffff; }&quot;">
-				<div class="cobbles-wrap col-md-6">
-				<div class="cobbles-img cobbles-overlay-wrap">
-				<div class="cobbles-overlay text-center overlay-center">
-				<div class="cobbles-title"><h3><a href="project" target="_self">Walk Test</a></h3></div>
-				<div class="cobbles-categories"><span>Our Project</span></div>
-				</div>
-				<img class="img-fluid cpt-img" src="wp-content/uploads/sites/17/2018/06/drivetest.jpeg" width="600" height="600" alt="Invest Advices" />
-				</div>
-				</div>
-				<div class="cobbles-wrap">
-				<div class="cobbles-img cobbles-overlay-wrap">
-				<div class="cobbles-overlay text-center overlay-center">
-				<div class="cobbles-title">
-				<h3><a href="portfolio/simple-solutions/" target="_self">Walk Test</a></h3>
-				</div>
-				<div class="cobbles-categories"><span>Our Project</span></div>
-				</div>
-				<img class="img-fluid cpt-img" src="wp-content/uploads/sites/17/2018/06/walktest.jpeg" width="300" height="300" alt="Simple Solutions" />
-				</div>
-				</div>
-				<div class="cobbles-wrap">
-				<div class="cobbles-img cobbles-overlay-wrap">
-				<div class="cobbles-overlay text-center overlay-center">
-				<div class="cobbles-title">
-				<h3><a href="portfolio/finance-consulting/" target="_self">Technology</a></h3>
-				</div>
-				<div class="cobbles-categories"><span>Our Project</span></div>
-				</div>
-				<img class="img-fluid cpt-img" src="wp-content/uploads/sites/17/2018/06/satellite.jpeg" width="300" height="300" alt="Finance Consulting" />
-				</div>
-				</div>
-				
-				</div>
-				<div class="vc_empty_space" style="height: 60px">
-				<span class="vc_empty_space_inner"></span>
-				</div>
-				<div class="vc_row wpb_row vc_inner vc_row-fluid">
-				<div class="wpb_column vc_column_container vc_col-sm-12">
-				<div class="vc_column-inner">
-				<div class="wpb_wrapper">
-				<div class="btn-wrap d-flex justify-content-center">
-				<a href="project/" class="btn  btn-default btn-rounded-circle theme-gradient-border theme-gradient-bg shortcode-rand-55 counsel-inline-css" 
-				data-css="&quot;.btn.shortcode-rand-55 { color: #ffffff; }.btn.shortcode-rand-55:hover { color: #ffffff; }.btn.shortcode-rand-55 { background: transparent; }.btn.shortcode-rand-55:hover { background-color: #000000; }.btn.shortcode-rand-55 { background: ; }.btn.shortcode-rand-55.theme-gradient-border:before { position: absolute; content: \&quot;\&quot;; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; display: inline-block; background: ; margin: 2px; border-radius: 100px; transition: all ease 0.35s; }.btn.shortcode-rand-55.theme-gradient-border:hover:before { background-color: #000000; }.btn.shortcode-rand-55:hover { border-color: #000000; }&quot;">ALL Gallery</a>
-				</div>
-				</div>
-				</div>
-				</div>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	<div class="vc_row-full-width vc_clearfix"></div>
 	<div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid sc_bg_b vc_custom_1537433430809 vc_row-has-fill" style="position: relative; left: -93px; box-sizing: border-box; width: 1356px; padding-left: 93px; padding-right: 93px;">
@@ -279,35 +191,21 @@
 	<div class="wpb_wrapper"></div>
 	</div></div></div>
 	<div class="team-wrapper team-1 text-left team-light shortcode-rand-58 counsel-inline-css">
-	<div class="row"><div class="col-lg-4 col-md-6">
+	<div class="row">
+	<?php while($team = mysqli_fetch_array($sqlteam)) { ?>
+	<div class="col-lg-4 col-md-6">
 	<div class="team-inner team-overlay-actived"><div class="team-thumb"><span class="overlay-bg overlay-custom"></span>
 	<div class="team-overlay overlay-bottom-center text-center"><div class="team-social-wrap clearfix">
 	<ul class="nav social-icons team-social social-circled social-white social-h-own social-bg-trans social-hbg-white">
-	<li><a>C.E.O</a></li>
+	<li><a>G.M</a></li>
 	</ul></div></div>
-	<img src="wp-content/uploads/sites/17/2018/06/ceo.jpeg" class="img-fluid wp-post-image" alt="" width="458" height="500" style="height:250px;">
+	<img src="wp-content/uploads/sites/17/2018/06/<?php echo $team['image'];?>" class="img-fluid wp-post-image" alt="" width="458" height="500" style="height:250px;">
 	</div><div class="team-name">
-	<p><a href="#" class="client-name"> David Ingosi - CEO </a></p>
+	<p><a href="#" class="client-name"> <?php echo $team['name'];?> - <?php echo $team['position'];?> </a></p>
 	</div><div class="team-designation">
-	<p>Hello, I am commited to serve you in the best way possible with my team. We work an extra mile to bring you the best services that you deserve in this digital era. Welcome to Ramca!</p></div></div></div>
-	<div class="col-lg-4 col-md-6">
-	<div class="team-inner team-overlay-actived">
-	<div class="team-thumb"><span class="overlay-bg overlay-custom"></span><div class="team-overlay overlay-bottom-center text-center">
-	<div class="team-social-wrap clearfix">
-	<ul class="nav social-icons team-social social-white social-h-own social-bg-trans social-hbg-white">
-	<li><a>Tech</a></li>
-	</ul></div></div>
-	<img src="wp-content/uploads/sites/17/2018/06/tech.jpeg" class="img-fluid wp-post-image" alt="" width="458" height="500" style="height:250px;"></div>
-	<div class="team-name"><p><a href="#" class="client-name">Asena, A - Technical Lead</a></p></div><div class="team-designation">
-	<p>Hello, I am dedicated to handle all the challanges and impropto that comes by. I am am also here to deliver the next generaion technology to you today. Come with us and you will never regret. Regards!</p>
+	<p><?php echo $team['message'];?></p>
 	</div></div></div>
-	<div class="col-lg-4 col-md-6"><div class="team-inner team-overlay-actived"><div class="team-thumb"><span class="overlay-bg overlay-custom"></span>
-	<div class="team-overlay overlay-bottom-center text-center"><div class="team-social-wrap clearfix">
-	<ul class="nav social-icons team-social social-circled social-white social-h-own social-bg-trans social-hbg-white">
-	<li><a>Lead</a></li></ul></div></div>
-	<img src="wp-content/uploads/sites/17/2018/06/lead.jpeg" class="img-fluid wp-post-image" alt="" width="458" height="500" style="height:250px;"></div>
-	<div class="team-name"><p><a href="#" class="client-name">Samwel Meja - Team Leader</a></p></div><div class="team-designation">
-	<p>Ramca Teleservices is dedicated to serve you. Our crew and I are qualified and have experience in this field of networking and programming. Visit us and see the magic. Regards!</p></div></div></div>
+	<?php } ?>
 	</div></div></div></div></div></div></div>
 
 	<div class="vc_row-full-width vc_clearfix"></div>

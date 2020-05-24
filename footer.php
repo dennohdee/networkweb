@@ -28,15 +28,15 @@
 	</div>
 	</div>
 	</div>
-	<div class="footer-middle-wrap">
+	<div class="footer-middle-wrap" style="background:#666;">
 	<div class="container">
 	<div class="row">
 	<div class="col-lg-4">
 	<div class="footer-middle-sidebar">
 					<section id="text-2" class="widget widget_text">
 					<div class="textwidget">
-					<p><img src="wp-content/uploads/sites/17/2018/06/demo-logo-light.png" alt="Ramca Teleservices" width="186" height="40" /></p>
-					<p>Welcome to RamcaTeleservices, the Home to Telecommunications, Electrical, Safety and Security Solutions.
+					<p><img src="wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" alt="Ramca Teleservices" width="186" height="40" /></p>
+					<p>Welcome to <?php echo $info['name'];?>, the Home to Telecommunications, Electrical, Safety and Security Solutions.
 These Products and Services are packaged to suit your Technological needs.</p>
 					</div>
 					</section>
@@ -62,9 +62,9 @@ These Products and Services are packaged to suit your Technological needs.</p>
 	<div class="contact-widget widget-content">
 	<p class="contact-text">Have questions, comments or just want to say hello:</p>
 	<div class="contact-widget-info">
-	<p class="contact-address"><span class="icon-directions icons"></span><span>P.O. Box 1111 Nairobi , Nairobi - Kenya</span></p>
-	<p class="contact-phone"><span class="icon-screen-smartphone icons"></span><span>+254702344321</span></p>
-	<p class="contact-email"><span class="icon-envelope icons"></span><span><a href="mailto:info@ramcateleservices.co.ke">info@ramcateleservices.co.ke</a></span></p>
+	<p class="contact-address"><span class="icon-directions icons"></span><span><?php echo $location['address'];?></span></p>
+	<p class="contact-phone"><span class="icon-screen-smartphone icons"></span><span><?php echo $info['phone'];?></span></p>
+	<p class="contact-email"><span class="icon-envelope icons"></span><span><a href="mailto:<?php echo $info['email'];?>"><?php echo $info['email'];?></a></span></p>
 	</div>
 	</div>
 	</section>
@@ -73,12 +73,12 @@ These Products and Services are packaged to suit your Technological needs.</p>
 	</div>
 	</div>
 	</div>
-	<div class="footer-bottom"><div class="footer-bottom-inner container">
+	<div class="footer-bottom"style="background:#222;"><div class="footer-bottom-inner container">
 	<div class="row">
 	<div class="col-md-12">
 	<ul class="footer-bottom-items nav pull-left">
 	<li class="nav-item">
-	<div class="nav-item-inner"> &copy; Copyright 2020 <a href="" class="default-color">Ramca Teleservices</a></div>
+	<div class="nav-item-inner"> &copy; Copyright 2020 <a href="" class="default-color"><?php echo $info['name'];?></a></div>
 	</li>
 	</ul>
 	<ul class="footer-bottom-items nav pull-center">

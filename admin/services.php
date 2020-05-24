@@ -101,65 +101,35 @@ elseif(isset($_POST['uplink']))
                                 <div class="image-gallery grid-layout portfolio-grid-layout" style="margin-bottom: -30px;" data-filter-stat="0" data-first-cat="">
                                 <div class="isotope" data-cols="3" data-gutter="30" data-layout="fitRows" data-infinite="false">
                                     <!--  -->
-                                 
-                                <article id="post-455" class="vc-portfolio portfolio-default">
+                                    <div class="table-responsive">
+                    <table class="table table-stripped table-bordered">
+                        <tr>
+                            <th>Name</th>
+                            <th>Link</th>
+                            <th>Actions</th>
+                        <tr>
+                        <?php while($linkdata = mysqli_fetch_array($mylinks)) { ?>
+                        <tr>
+                        <form name="" action="" method="post">
+                            <td><input type="hidden" name="id" value="<?php echo $linkdata['id'];?>">
+                            <input type="text" name="name" value="<?php echo $linkdata['name'];?>" class="form-control"></td>
+                            <td><input type="text" name="link" value="<?php echo $linkdata['link'];?>" class="form-control"></td>
+                            <td><button class="btn btn-info btn-sm" name="uplink" type="submit"><i class="fa fa-edit"></i> Update</button>
+                            </form>
+                            <!-- <form name="" action="" method="post">
+                            <input type="hidden" name="linkid" value="<?php echo $linkdata['id'];?>">
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Sure to delete?')" name="deletelink" type="submit"><i class="fa fa-trash"></i> Delete</button>
+                            </form> -->
+                            </td>
+                        <tr>
+                        <?php } ?>
+                    </table>
+                    </div>
+                                   <article id="post-455" class="vc-portfolio">
                                     <div class="portfolio-wrap">
                                     <div class="portfolio-content-wrap">
                                         <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#logomodal" data-toggle="modal" id="show-modal">Change COmpany Info.</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#contactmodal" data-toggle="modal" id="show-modal">Change Contact details</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-                                
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#">View Messages</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#teammodal" data-toggle="modal" id="show-modal">Add Team member</a></h3>
-                                            <a href=""><button class="btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css">View Members</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#servicemodal" data-toggle="modal" id="show-modal">Add Service</a></h3>
-                                            <a href=""><button class="btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css">View Services</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#linkmodal" data-toggle="modal" id="show-modal">Add Social links</a></h3>
-                                            <a href="#" data-target="#viewlinkmodal" data-toggle="modal" id="show-modal"><button class="btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css">View Links</button></a>
+                                            <h3><a href="#" data-target="#linkmodal" data-toggle="modal" id="show-modal"></a></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -383,6 +353,7 @@ elseif(isset($_POST['uplink']))
                     </table>
                     </div>
                     <!-- ./table -->
+                   
 					</div>
 				</div>
 			</div>

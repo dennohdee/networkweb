@@ -5,7 +5,7 @@
 	<div class="col-md-12">
 	<ul class="footer-bottom-items nav pull-left">
 	<li class="nav-item">
-	<div class="nav-item-inner"> &copy; Copyright 2020 <a href="" class="default-color">Ramca Teleservices</a></div>
+	<div class="nav-item-inner"> &copy; Copyright 2020 <a href="" class="default-color"><?php echo $info['name'];?></a></div>
 	</li>
 	</ul>
 	<ul class="footer-bottom-items nav pull-center">

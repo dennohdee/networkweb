@@ -1,10 +1,17 @@
+<?php require_once('../conn.php');
+$sql = mysqli_query($conn,"SELECT * FROM `company_info`");
+$info = mysqli_fetch_array($sql) or die("Error!");
+//get loc info
+$sql1 = mysqli_query($conn,"SELECT * FROM `location`");
+$location = mysqli_fetch_array($sql1) or die("Error!");
+?>
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" class="no-js no-svg">
 <head><meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="content" author="Dennis Kiprotich">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<title>Ramca Teleservices</title> 
+	<title><?php echo $info['name'];?></title> 
 	<script>
 			WebFont.load({
 				google: {"families":["Lato:300,400,700,900"]},
@@ -29,12 +36,12 @@
                                 s.parentNode.insertBefore( wf, s );
                             })();
 							</script> 
-							<link rel="alternate" type="application/rss+xml" title="Ramca Teleservices &raquo; Feed" href="feed/" />
-							<link rel="alternate" type="application/rss+xml" title="Ramca Teleservices &raquo; Comments Feed" href="comments/feed/"/>
+							<link rel="alternate" type="application/rss+xml" title="<?php echo $info['name'];?> &raquo; Feed" href="feed/" />
+							<link rel="alternate" type="application/rss+xml" title="<?php echo $info['name'];?> &raquo; Comments Feed" href="comments/feed/"/>
 							<meta property="og:title" content="Home"/>
 							<meta property="og:type" content="article"/>
 							<meta property="og:url" content=""/>
-							<meta property="og:site_name" content="Ramca Teleservices"/>
+							<meta property="og:site_name" content="<?php echo $info['name'];?>"/>
 							<meta property="og:description" content="Profitable Investmen tExcepteur sint occaecat cupidatat non proident, sunt"/>
 							<link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
 							<link rel='stylesheet' id='wc-block-style-css'  href='../wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css' type='text/css' media='all' />
@@ -71,8 +78,8 @@ body {
 		 <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style>
 		</noscript><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
 		 <meta name="generator" content="Powered by Slider Revolution 6.2.2 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-		 <link rel="icon" href="../wp-content/uploads/sites/17/2018/09/cropped-favicon-32x32.png" sizes="32x32" />
-		 <link rel="icon" href="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" sizes="192x192" />
+		 <link rel="icon" href="../wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" sizes="32x32" />
+		 <link rel="icon" href="../wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" sizes="192x192" />
 		 <link rel="apple-touch-icon" href="../wp-content/uploads/sites/17/2018/09/cropped-favicon-180x180.png" />
 		 <meta name="msapplication-TileImage" content="wp-content/uploads/sites/17/2018/09/cropped-favicon-270x270.png" /> 
 		 <script type="text/javascript">function setREVStartSize(e){			
@@ -157,8 +164,8 @@ body {
 					<ul class="mobile-header-items nav pull-center">
 						<li class="nav-item"><div class="nav-item-inner">
 							<div class="mobile-logo">
-								<a href="../" title="Ramca Teleservices" >
-								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" /></a>
+								<a href="../" title="<?php echo $info['name'];?>" >
+								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" alt="<?php echo $info['name'];?>" title="<?php echo $info['name'];?>" /></a>
 							</div>
 						</div>
 					</li>
@@ -182,8 +189,8 @@ body {
 				<li class="nav-item">
 					<div class="nav-item-inner">
 						<div class="mobile-logo">
-							<a href="../" title="Ramca Teleservices" >
-								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
+							<a href="../" title="<?php echo $info['name'];?>" >
+								<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" alt="<?php echo $info['name'];?>" title="<?php echo $info['name'];?>" />
 							</a>
 						</div>
 					</div>
@@ -247,8 +254,8 @@ body {
 					<li class="nav-item">
 						<div class="nav-item-inner">
 							<ul class="nav header-info">
-								<li class="nav-item">Phone:  +254702344321</li>
-								<li class="nav-item">E-mail:<a href="mailto:info@ramcateleservices.co.ke"> info@ramcateleservices.co.ke</a></li>
+								<li class="nav-item">Phone: <?php echo $info['phone'];?></li>
+								<li class="nav-item">E-mail:<a href="mailto:<?php echo $info['email'];?>."> <?php echo $info['email'];?>.</a></li>
 							</ul>
 						</div>
 					</li>
@@ -284,13 +291,13 @@ body {
 							<li class="nav-item">
 								<div class="nav-item-inner">
 									<div class="main-logo"> 
-										<a href="../" title="Ramca Teleservices">
-											<img class="custom-logo img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
+										<a href="../" title="<?php echo $info['name'];?>">
+											<img class="custom-logo img-responsive" src="../wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" alt="<?php echo $info['name'];?>" title="<?php echo $info['name'];?>" />
 										</a>
 									</div>
 									<div class="sticky-logo">
-										<a href="../" title="Ramca Teleservices" >
-											<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/cropped-favicon-192x192.png" alt="Ramca Teleservices" title="Ramca Teleservices" />
+										<a href="../" title="<?php echo $info['name'];?>" >
+											<img class="img-responsive" src="../wp-content/uploads/sites/17/2018/09/<?php echo $info['logo']; ?>" alt="<?php echo $info['name'];?>" title="<?php echo $info['name'];?>" />
 										</a>
 									</div>
 								</div>
