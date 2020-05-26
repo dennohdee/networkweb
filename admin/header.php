@@ -1,4 +1,9 @@
 <?php require_once('../conn.php');
+session_start();
+if($_SESSION['name'] == '')
+{
+	echo '<script>window.location.href="login.php";</script>';
+}
 $sql = mysqli_query($conn,"SELECT * FROM `company_info`");
 $info = mysqli_fetch_array($sql) or die("Error!");
 //get loc info

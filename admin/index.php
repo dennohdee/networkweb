@@ -22,13 +22,14 @@ if(isset($_POST['contact-save']))
 elseif(isset($_POST['info-save']))
 {
     //company info
-    $editcinfosql = "UPDATE `company_info` SET `name`='".$_POST['name']."', `logo`='".$_POST['logo']."', `vision`='".$_POST['vision']."', `mission`='".$_POST['mission']."' WHERE 1";
+    $foo = basename($_FILES["logo"]["name"]);
+    $editcinfosql = "UPDATE `company_info` SET `name`='".$_POST['name']."', `logo`='".$foo."', `vision`='".$_POST['vision']."', `mission`='".$_POST['mission']."' WHERE 1";
     $editcinfoquery = mysqli_query($conn,$editcinfosql) or die('Oops! An Error occurred. Please try again.');
     if($editcinfoquery)
     {
         $target_dir = "../wp-content/uploads/sites/17/2018/09/";
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+        $target_file = $target_dir . basename($_FILES["logo"]["name"]);
+        move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file);
         $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
         //echo '<script>window.location.href="/myweb/admin";</script>';
     }
@@ -38,7 +39,8 @@ elseif(isset($_POST['info-save']))
 }
 elseif(isset($_POST['team-save']))
 {
-    $teamsql = "INSERT INTO `team`(`name`, `position`, `image`, `message`) VALUES ('".$_POST['name']."','".$_POST['position']."','".$_POST['photo']."','".$_POST['message']."')";
+    $foo = basename($_FILES["photo"]["name"]);
+    $teamsql = "INSERT INTO `team`(`name`, `position`, `image`, `message`) VALUES ('".$_POST['name']."','".$_POST['position']."','".$foo."','".$_POST['message']."')";
     $teamquery = mysqli_query($conn,$teamsql) or die("Oops! An Error occurred!");
     if($teamquery)
     {
@@ -48,7 +50,8 @@ elseif(isset($_POST['team-save']))
 }
 elseif(isset($_POST['service-save']))
 {
-    $servicesql = "INSERT INTO `services`(`name`, `image`, `description`) VALUES ('".$_POST['name']."','".$_POST['photo']."','".$_POST['description']."')";
+    $foo = basename($_FILES["photo"]["name"]);
+    $servicesql = "INSERT INTO `services`(`name`, `image`, `description`) VALUES ('".$_POST['name']."','".$foo."','".$_POST['description']."')";
     $servicequery = mysqli_query($conn,$servicesql) or die("Oops! An Error occurred!");
     if($servicequery)
     {
@@ -180,7 +183,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Edit Company Info.</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-            <form name="" action="" method="post">
+            <form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element " >
 					<div class="wpb_wrapper row">
@@ -257,7 +260,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Add Management Team</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-			<form name="" action="" method="post">
+			<form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element " >
 					<div class="wpb_wrapper row">
@@ -292,7 +295,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Add Service</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-			<form name="" action="" method="post">
+			<form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element " >
 					<div class="wpb_wrapper row">
@@ -324,7 +327,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Add Link</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-			<form name="" action="" method="post">
+			<form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element">
 					<div class="wpb_wrapper row">
