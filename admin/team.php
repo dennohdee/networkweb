@@ -1,89 +1,13 @@
 <?php require_once("header.php");
-$mylinks = mysqli_query($conn,"SELECT * FROM `social_links`");
-//insert ot db
-//contact edit
-if(isset($_POST['contact-save']))
-{
-    $editinfosql = "UPDATE `company_info` SET `email`='".$_POST['email']."', `phone`='".$_POST['phone']."' WHERE 1";
-    $editconsql = "UPDATE `location` SET `address`='".$_POST['address']."',`location`='".$_POST['location']."',
-    `map`='".$_POST['map']."',`building`='".$_POST['building']."' WHERE 1";
-    $editquery = mysqli_query($conn,$editconsql) or die('Oops! An Error occurred. Please try again.');
-    $editinfoquery = mysqli_query($conn,$editinfosql) or die('Oops! An Error occurred. Please try again.');
-    if($editquery & $editinfoquery)
-    {
-        $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
-        //echo '<script>window.location.href="/myweb/admin";</script>';
-    }
-    else{
-        $msg = "<div class='alert alert-danger'>Failed! Please try again!</div>";
-    }
-}
+$sql = mysqli_query($conn,"SELECT * FROM `team`");
 
-elseif(isset($_POST['info-save']))
+if(isset($_POST['deleteteam']))
 {
-    //company info
-    $foo = basename($_FILES["logo"]["name"]);
-    $editcinfosql = "UPDATE `company_info` SET `name`='".$_POST['name']."', `logo`='".$foo."', `vision`='".$_POST['vision']."', `mission`='".$_POST['mission']."' WHERE 1";
-    $editcinfoquery = mysqli_query($conn,$editcinfosql) or die('Oops! An Error occurred. Please try again.');
-    if($editcinfoquery)
-    {
-        $target_dir = "../wp-content/uploads/sites/17/2018/09/";
-        $target_file = $target_dir . basename($_FILES["logo"]["name"]);
-        move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file);
-        $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
-        //echo '<script>window.location.href="/myweb/admin";</script>';
-    }
-    else{
-        $msg = "<div class='alert alert-danger'>Failed! Please try again!</div>";
-    }
-}
-elseif(isset($_POST['team-save']))
-{
-    $foo = basename($_FILES["photo"]["name"]);
-    $teamsql = "INSERT INTO `team`(`name`, `position`, `image`, `message`) VALUES ('".$_POST['name']."','".$_POST['position']."','".$foo."','".$_POST['message']."')";
+    $teamsql = "DELETE FROM `team` WHERE `id`='".$_POST['teamid']."'";
     $teamquery = mysqli_query($conn,$teamsql) or die("Oops! An Error occurred!");
     if($teamquery)
     {
-        $target_dir = "../wp-content/uploads/sites/17/2018/06/";
-        $msg = "<div class='alert alert-success'>Added Successfully!</div>";
-    }
-}
-elseif(isset($_POST['service-save']))
-{
-    $foo = basename($_FILES["photo"]["name"]);
-    $servicesql = "INSERT INTO `services`(`name`, `image`, `description`) VALUES ('".$_POST['name']."','".$foo."','".$_POST['description']."')";
-    $servicequery = mysqli_query($conn,$servicesql) or die("Oops! An Error occurred!");
-    if($servicequery)
-    {
-        $target_dir = "../wp-content/uploads/sites/17/2018/06/";
-        $msg = "<div class='alert alert-success'>Added Successfully!</div>";
-    }
-}
-elseif(isset($_POST['link-save']))
-{
-    $linksql = "INSERT INTO `social_links`(`name`, `link`) VALUES ('".$_POST['name']."','".$_POST['link']."')";
-    $linkquery = mysqli_query($conn,$linksql) or die("Oops! An Error occurred!");
-    if($linkquery)
-    {
-        $msg = "<div class='alert alert-success'>Added Successfully!</div>";
-    }
-}
-elseif(isset($_POST['deletelink']))
-{
-    $linksql = "DELETE FROM `social_links` WHERE `id`='".$_POST['linkid']."'";
-    $linkquery = mysqli_query($conn,$linksql) or die("Oops! An Error occurred!");
-    if($linkquery)
-    {
         $msg = "<div class='alert alert-success'>Deleted Successfully!</div>";
-    }
-}
-elseif(isset($_POST['uplink']))
-{
-    $uplinksql = "UPDATE `social_links` SET `name`='".$_POST['name']."',`link`='".$_POST['link']."' WHERE `id`='".$_POST['id']."'";
-    $uplinkquery = mysqli_query($conn,$uplinksql) or die("Oops! An Error occurred!");
-    if($uplinkquery)
-    {
-        $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
     }
 }
 ?>
@@ -100,72 +24,86 @@ elseif(isset($_POST['uplink']))
                         <div class="vc_column-inner">
                             <div class="wpb_wrapper">
                             <?php if(isset($msg)){echo $msg;}?>
-                            <div class="portfolio-wrapper text-center" data-css="&quot;&quot;">
-                                <div class="image-gallery grid-layout portfolio-grid-layout" style="margin-bottom: -30px;" data-filter-stat="0" data-first-cat="">
-                                <div class="isotope" data-cols="3" data-gutter="30" data-layout="fitRows" data-infinite="false">
+                            <div class="portfolio-wrapper" data-css="&quot;&quot;">
+                                <div class="image-gallery" data-filter-stat="0" data-first-cat="">
+                                <div class="isotope">
                                     <!--  -->
                                  
                                 <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#logomodal" data-toggle="modal" id="show-modal">Change Company Info.</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#contactmodal" data-toggle="modal" id="show-modal">Change Contact details</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-                                
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="messages.php">View Messages</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#teammodal" data-toggle="modal" id="show-modal">Add Team member</a></h3>
-                                            <a href="team.php"><button class="btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css">View Members</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#servicemodal" data-toggle="modal" id="show-modal">Add Service</a></h3>
-                                            <a href="services.php"><button class="btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css">View Services</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                </article>
-
-                                <article id="post-455" class="vc-portfolio portfolio-default">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#linkmodal" data-toggle="modal" id="show-modal">Add Social links</a></h3>
-                                            <a href="#" data-target="#viewlinkmodal" data-toggle="modal" id="show-modal"><button class="btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css">View Links</button></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="table-responsive">
+                                    <table id="table" class="table-striped" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Photo</th>
+                                            <th>Message</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php while($teamdata = mysqli_fetch_array($sql)) { ?>
+                                        <tr>
+                                            <td><?php echo $teamdata['name'];?></td>
+                                            <td><?php echo $teamdata['position'];?></td>
+                                            <td><img src="../wp-content/uploads/sites/17/2018/06/<?php echo $teamdata['image'];?>" alt="Photo" width="100" height="100"/></td>
+                                            <td><?php echo $teamdata['message'];?></td>
+                                            <td><button class="btn btn-info btn-sm" name="upteam" data-target="#teammodal<?php echo $teamdata['id'];?>" data-toggle="modal" id="show-modal">
+                                                <i class="fa fa-edit"></i> Update</button>
+                                                </form>
+                                                <form name="" action="" method="post">
+                                                <input type="hidden" name="teamid" value="<?php echo $teamdata['id'];?>">
+                                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Sure to delete?')" name="deleteteam" type="submit"><i class="fa fa-trash"></i> Delete</button>
+                                                </form>
+                                                </td>
+                                                <!-- team -->
+                                                <div class="modal fade" id="teammodal<?php echo $teamdata['id'];?>" tabindex="-1" role="dialog" aria-labelledby="shortcode-rand-28" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Edit Management Team <?php echo $teamdata['id'];?></h5><span class="modal-close icon-close" data-dismiss="modal"></span>
+                                                            </div>
+                                                            <form name="" action="" method="post" enctype="multipart/form-data">
+                                                            <div class="modal-body">
+                                                                <div class="wpb_text_column wpb_content_element " >
+                                                                    <div class="wpb_wrapper row">
+                                                                    <div class="col-md-6 form-group"> 
+                                                                    <input type="text" name="name" value="<?php echo $teamdata['name'];?>" class="form-control wpcf7-text" aria-invalid="false" id="name" placeholder="Name" required> 
+                                                                    </div>
+                                                                    <div class="col-md-6 form-group">
+                                                                    <input type="text" name="position" value="<?php echo $teamdata['position'];?>" class="form-control wpcf7-text" aria-invalid="false" id="position" placeholder="Position" required> 
+                                                                    </div>
+                                                                    <div class="col-md-12 form-group">
+                                                                    <label for="logo">Photo:</label>
+                                                                    <input type="file" name="photo" value="<?php echo $teamdata['image'];?>" class="form-control wpcf7-text" aria-invalid="false" id="photo" required>
+                                                                    </div>
+                                                                    <div class="col-md-12 form-group">
+                                                                    <textarea name="message" class="form-control wpcf7-text" aria-invalid="false" id="message" placeholder="Type message here"><?php echo $teamdata['message'];?></textarea> 
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <button class="btn btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css" name="team-save" type="submit">Save</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- ./team -->
+                                        </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Photo</th>
+                                            <th>Message</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
                                 </article>
                     <!--  -->
                     </div>

@@ -316,18 +316,13 @@ body {
 								<div class="nav-item-inner">
 									<ul id="counsel-main-menu" class="nav counsel-main-menu">
 										<li id="menu-item-1255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-588 menu-item-has-children nav-item menu-item-1255">
-											<a href="../" class="nav-link">Home</a>
+											<a href='index.php' class="nav-link">Home</a>
 										</li>
 										<li id="menu-item-1266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1266">
-										<a href="about" class="nav-link">Team</a>
+										<a href="team.php" class="nav-link">Team</a>
 										</li>
 										<li id="menu-item-1264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1264 dropdown">
-											<a href="services/" class="nav-link dropdown-toggle">Services</a>
-											<ul role="menu" class=" dropdown-menu">
-												<li id="menu-item-1495" class="menu-item menu-item-type-post_type menu-item-object-cl-service nav-item menu-item-1495">
-													<a href="#" class="nav-link">All Services</a>
-												</li>
-											</ul>
+											<a href="services.php" class="nav-link dropdown-toggle">Services</a>
 										</li>
 										<!-- <li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-has-children nav-item menu-item-1402">
 											<a href="project" class="nav-link">Projects</a>
@@ -336,7 +331,7 @@ body {
 											<a href="blog" class="nav-link dropdown-toggle">Blog</a>
 										</li>-->
 										<li id="menu-item-1259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-1259 dropdown">
-											<a href="contact-us/" class="nav-link dropdown-toggle">Messages</a>
+											<a href="messages.php" class="nav-link dropdown-toggle">Messages</a>
 										</li>
 									</ul>
 								</div>

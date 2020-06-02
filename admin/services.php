@@ -1,86 +1,13 @@
 <?php require_once("header.php");
-$mylinks = mysqli_query($conn,"SELECT * FROM `social_links`");
-//insert ot db
-//contact edit
-if(isset($_POST['contact-save']))
-{
-    $editinfosql = "UPDATE `company_info` SET `email`='".$_POST['email']."', `phone`='".$_POST['phone']."' WHERE 1";
-    $editconsql = "UPDATE `location` SET `address`='".$_POST['address']."',`location`='".$_POST['location']."',
-    `map`='".$_POST['map']."',`building`='".$_POST['building']."' WHERE 1";
-    $editquery = mysqli_query($conn,$editconsql) or die('Oops! An Error occurred. Please try again.');
-    $editinfoquery = mysqli_query($conn,$editinfosql) or die('Oops! An Error occurred. Please try again.');
-    if($editquery & $editinfoquery)
-    {
-        $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
-        //echo '<script>window.location.href="/myweb/admin";</script>';
-    }
-    else{
-        $msg = "<div class='alert alert-danger'>Failed! Please try again!</div>";
-    }
-}
+$sql = mysqli_query($conn,"SELECT * FROM `services`");
 
-elseif(isset($_POST['info-save']))
+if(isset($_POST['deleteservice']))
 {
-    //company info
-    $editcinfosql = "UPDATE `company_info` SET `name`='".$_POST['name']."', `logo`='".$_POST['logo']."', `vision`='".$_POST['vision']."', `mission`='".$_POST['mission']."' WHERE 1";
-    $editcinfoquery = mysqli_query($conn,$editcinfosql) or die('Oops! An Error occurred. Please try again.');
-    if($editcinfoquery)
-    {
-        $target_dir = "../wp-content/uploads/sites/17/2018/09/";
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
-        $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
-        //echo '<script>window.location.href="/myweb/admin";</script>';
-    }
-    else{
-        $msg = "<div class='alert alert-danger'>Failed! Please try again!</div>";
-    }
-}
-elseif(isset($_POST['team-save']))
-{
-    $teamsql = "INSERT INTO `team`(`name`, `position`, `image`, `message`) VALUES ('".$_POST['name']."','".$_POST['position']."','".$_POST['photo']."','".$_POST['message']."')";
-    $teamquery = mysqli_query($conn,$teamsql) or die("Oops! An Error occurred!");
-    if($teamquery)
-    {
-        $target_dir = "../wp-content/uploads/sites/17/2018/06/";
-        $msg = "<div class='alert alert-success'>Added Successfully!</div>";
-    }
-}
-elseif(isset($_POST['service-save']))
-{
-    $servicesql = "INSERT INTO `services`(`name`, `image`, `description`) VALUES ('".$_POST['name']."','".$_POST['photo']."','".$_POST['description']."')";
+    $servicesql = "DELETE FROM `services` WHERE `id`='".$_POST['serviceid']."'";
     $servicequery = mysqli_query($conn,$servicesql) or die("Oops! An Error occurred!");
     if($servicequery)
     {
-        $target_dir = "../wp-content/uploads/sites/17/2018/06/";
-        $msg = "<div class='alert alert-success'>Added Successfully!</div>";
-    }
-}
-elseif(isset($_POST['link-save']))
-{
-    $linksql = "INSERT INTO `social_links`(`name`, `link`) VALUES ('".$_POST['name']."','".$_POST['link']."')";
-    $linkquery = mysqli_query($conn,$linksql) or die("Oops! An Error occurred!");
-    if($linkquery)
-    {
-        $msg = "<div class='alert alert-success'>Added Successfully!</div>";
-    }
-}
-elseif(isset($_POST['deletelink']))
-{
-    $linksql = "DELETE FROM `social_links` WHERE `id`='".$_POST['linkid']."'";
-    $linkquery = mysqli_query($conn,$linksql) or die("Oops! An Error occurred!");
-    if($linkquery)
-    {
         $msg = "<div class='alert alert-success'>Deleted Successfully!</div>";
-    }
-}
-elseif(isset($_POST['uplink']))
-{
-    $uplinksql = "UPDATE `social_links` SET `name`='".$_POST['name']."',`link`='".$_POST['link']."' WHERE `id`='".$_POST['id']."'";
-    $uplinkquery = mysqli_query($conn,$uplinksql) or die("Oops! An Error occurred!");
-    if($uplinkquery)
-    {
-        $msg = "<div class='alert alert-success'>Updated Successfully!</div>";
     }
 }
 ?>
@@ -97,42 +24,80 @@ elseif(isset($_POST['uplink']))
                         <div class="vc_column-inner">
                             <div class="wpb_wrapper">
                             <?php if(isset($msg)){echo $msg;}?>
-                            <div class="portfolio-wrapper text-center" data-css="&quot;&quot;">
-                                <div class="image-gallery grid-layout portfolio-grid-layout" style="margin-bottom: -30px;" data-filter-stat="0" data-first-cat="">
-                                <div class="isotope" data-cols="3" data-gutter="30" data-layout="fitRows" data-infinite="false">
+                            <div class="portfolio-wrapper" data-css="&quot;&quot;">
+                                <div class="image-gallery" data-filter-stat="0" data-first-cat="">
+                                <div class="isotope">
                                     <!--  -->
-                                    <div class="table-responsive">
-                    <table class="table table-stripped table-bordered">
-                        <tr>
-                            <th>Name</th>
-                            <th>Link</th>
-                            <th>Actions</th>
-                        <tr>
-                        <?php while($linkdata = mysqli_fetch_array($mylinks)) { ?>
-                        <tr>
-                        <form name="" action="" method="post">
-                            <td><input type="hidden" name="id" value="<?php echo $linkdata['id'];?>">
-                            <input type="text" name="name" value="<?php echo $linkdata['name'];?>" class="form-control"></td>
-                            <td><input type="text" name="link" value="<?php echo $linkdata['link'];?>" class="form-control"></td>
-                            <td><button class="btn btn-info btn-sm" name="uplink" type="submit"><i class="fa fa-edit"></i> Update</button>
-                            </form>
-                            <!-- <form name="" action="" method="post">
-                            <input type="hidden" name="linkid" value="<?php echo $linkdata['id'];?>">
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Sure to delete?')" name="deletelink" type="submit"><i class="fa fa-trash"></i> Delete</button>
-                            </form> -->
-                            </td>
-                        <tr>
-                        <?php } ?>
-                    </table>
-                    </div>
-                                   <article id="post-455" class="vc-portfolio">
-                                    <div class="portfolio-wrap">
-                                    <div class="portfolio-content-wrap">
-                                        <div class="portfolio-title">
-                                            <h3><a href="#" data-target="#linkmodal" data-toggle="modal" id="show-modal"></a></h3>
-                                        </div>
-                                    </div>
-                                </div>
+                                 
+                                <article id="post-455" class="vc-portfolio portfolio-default">
+                                <div class="table-responsive">
+                                    <table id="table" class="table-striped" width="100%">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Photo</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php while($servicedata = mysqli_fetch_array($sql)) { ?>
+                                        <tr>
+                                            <td><?php echo $servicedata['name'];?></td>
+                                            <td><img src="../wp-content/uploads/sites/17/2018/06/<?php echo $servicedata['image'];?>" alt="Photo" width="100" height="100"/></td>
+                                            <td><?php echo $servicedata['description'];?></td>
+                                            <td><button class="btn btn-info btn-sm" name="upservice" data-target="#servicemodal<?php echo $servicedata['id'];?>" data-toggle="modal" id="show-modal">
+                                            <i class="fa fa-edit"></i> Update</button>
+                                                </form>
+                                                <form name="" action="" method="post">
+                                                <input type="hidden" name="serviceid" value="<?php echo $servicedata['id'];?>">
+                                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Sure to delete?')" name="deleteservice" type="submit"><i class="fa fa-trash"></i> Delete</button>
+                                                </form>
+                                                </td>
+                                                <!-- service -->
+                                                <div class="modal fade" id="servicemodal<?php echo $servicedata['id'];?>" tabindex="-1" role="dialog" aria-labelledby="shortcode-rand-28" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Edit Service <?php echo $servicedata['id'];?></h5><span class="modal-close icon-close" data-dismiss="modal"></span>
+                                                            </div>
+                                                            <form name="" action="" method="post" enctype="multipart/form-data">
+                                                            <div class="modal-body">
+                                                                <div class="wpb_text_column wpb_content_element " >
+                                                                    <div class="wpb_wrapper row">
+                                                                    <div class="col-md-12 form-group"> 
+                                                                    <input type="text" name="name" value="<?php echo $servicedata['name'];?>" class="form-control wpcf7-text" aria-invalid="false" id="name" placeholder="Name" required> 
+                                                                    </div>
+                                                                    <div class="col-md-12 form-group">
+                                                                    <label for="logo">Photo:</label>
+                                                                    <input type="file" name="photo" value="<?php echo $servicedata['photo'];?>" class="form-control wpcf7-text" aria-invalid="false" id="photo" required>
+                                                                    </div>
+                                                                    <div class="col-md-12 form-group">
+                                                                    <textarea name="description" class="form-control wpcf7-text" aria-invalid="false" id="description" placeholder="Type description here"><?php echo $servicedata['description'];?></textarea> 
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <button class="btn btn btn-default btn-light btn-shadowed shortcode-rand-67 counsel-inline-css" name="service-save" type="submit">Save</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- ./service -->
+                                        </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Photo</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
                                 </article>
                     <!--  -->
                     </div>
@@ -150,7 +115,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Edit Company Info.</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-            <form name="" action="" method="post">
+            <form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element " >
 					<div class="wpb_wrapper row">
@@ -227,7 +192,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Add Management Team</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-			<form name="" action="" method="post">
+			<form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element " >
 					<div class="wpb_wrapper row">
@@ -262,7 +227,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Add Service</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-			<form name="" action="" method="post">
+			<form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element " >
 					<div class="wpb_wrapper row">
@@ -294,7 +259,7 @@ elseif(isset($_POST['uplink']))
 			<div class="modal-header">
 				<h5 class="modal-title">Add Link</h5><span class="modal-close icon-close" data-dismiss="modal"></span>
 			</div>
-			<form name="" action="" method="post">
+			<form name="" action="" method="post" enctype="multipart/form-data">
 			<div class="modal-body">
 				<div class="wpb_text_column wpb_content_element">
 					<div class="wpb_wrapper row">
@@ -353,7 +318,6 @@ elseif(isset($_POST['uplink']))
                     </table>
                     </div>
                     <!-- ./table -->
-                   
 					</div>
 				</div>
 			</div>
